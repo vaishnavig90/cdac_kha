@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+  FILE: index.html  →  STRUCTURE of the page
+  The browser reads this file first. It links:
+    style.css  → how the page LOOKS
+    script.js  → how the page BEHAVES and where the DATA comes from
+  Empty containers below (id="...") are filled by script.js.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PG-DBDA Student Hub · C-DAC Kharghar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="brand">
+      <span class="logo">C</span>
+      <span>C-DAC <b>Kharghar</b></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <button id="theme-btn" class="icon-btn" title="Switch light / dark">🌙</button>
+  </nav>
+
+  <!-- 2. HERO: big title area -->
+  <header class="hero">
+    <span class="badge" id="version">v1.0</span>
+    <h1 id="course-title">Loading…</h1>
+    <p id="course-subtitle" class="subtitle"></p>
+
+    <!-- numbers are calculated in script.js from the data -->
+    <div class="stats">
+      <div class="stat"><span id="stat-modules">0</span><small>Modules</small></div>
+      <div class="stat"><span id="stat-weeks">0</span><small>Weeks</small></div>
+      <div class="stat"><span id="stat-team">0</span><small>Contributors</small></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 3. MODULES: cards with search and filter -->
+    <section id="modules" class="section">
+      <div class="section-head">
+        <h2>Course modules</h2>
+        <input type="text" id="search" placeholder="Search a module…">
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="module-grid"></div>
+      <p class="empty" id="empty-msg" hidden>No module matches your search.</p>
+    </section>
+
+    <!-- 4. TEAM: every student adds their name here using a Git branch -->
+    <section id="team" class="section">
+      <div class="section-head">
+        <h2>Project contributors</h2>
+        <span class="hint">Add yourself in <code>script.js</code> on your own branch</span>
+      </div>
+      <div class="team-grid" id="team-grid"></div>
+    </section>
+
+    <!-- 5. ABOUT: where is this page running? -->
+    <section id="about" class="section about">
+      <h2>Where is this page running?</h2>
+      <p>This same code runs on your laptop, on Amazon S3 and on an EC2 server. The box below detects it automatically.</p>
+      <div class="served" id="served-from">Detecting…</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built during the Git &amp; AWS lab · <span id="year"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
